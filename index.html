@@ -48,6 +48,22 @@
                 <span class="menu-label">Profile</span>
               </a>
             </li>
+             <!-- Drawing App menu item -->
+<li class="menu-item">
+  <a href="#" class="menu-link" onclick="showDrawingApp()">
+    <span class="material-symbols-rounded">edit</span>
+    <span class="menu-label">Drawing App</span>
+  </a>
+</li>
+
+<!-- Memory Card Game menu item -->
+<li class="menu-item">
+  <a href="#" class="menu-link" onclick="showMemoryGame()">
+    <span class="material-symbols-rounded">gamepad</span>
+    <span class="menu-label">Memory Game</span>
+  </a>
+</li>
+
             <!-- Other existing menu items -->
             <li class="menu-item">
               <a href="#" class="menu-link">
@@ -113,21 +129,35 @@
 
     <script src="script.js"></script>
     <script>
-      function showProfile() {
-        const iframe = document.getElementById('content-frame');
-        document.querySelector('.page-title').style.display = 'none';
-        document.querySelector('.card').style.display = 'none';
-        iframe.src = 'https://ttin14.github.io/trungtin.github.io/';
-        iframe.style.display = 'block';
-      }
+  function showProfile() {
+    const iframe = document.getElementById('content-frame');
+    showIframe('https://ttin14.github.io/trungtin.github.io/');
+  }
 
-      function showDashboard() {
-        const iframe = document.getElementById('content-frame');
-        document.querySelector('.page-title').style.display = 'block';
-        document.querySelector('.card').style.display = 'block';
-        iframe.src = '';
-        iframe.style.display = 'none';
-      }
-    </script>
+  function showDashboard() {
+    const iframe = document.getElementById('content-frame');
+    document.querySelector('.page-title').style.display = 'block';
+    document.querySelector('.card').style.display = 'block';
+    iframe.src = '';
+    iframe.style.display = 'none';
+  }
+
+  function showDrawingApp() {
+    showIframe('drawing-app/index.html'); // đường dẫn tới app vẽ
+  }
+
+  function showMemoryGame() {
+    showIframe('memory-game/index.html'); // đường dẫn tới game trí nhớ
+  }
+
+  function showIframe(src) {
+    const iframe = document.getElementById('content-frame');
+    document.querySelector('.page-title').style.display = 'none';
+    document.querySelector('.card').style.display = 'none';
+    iframe.src = src;
+    iframe.style.display = 'block';
+  }
+</script>
+
   </body>
 </html>
